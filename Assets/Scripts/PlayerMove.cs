@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Sockets;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -13,7 +14,7 @@ public class PlayerMove : MonoBehaviour
 	private CharacterController playerCharController;
 
 	private Vector2 moveInput;
-	private Vector3 targetVector;
+	private Vector3 moveDirection;
 
 	[Header("Serializable Movement Attributes")]
 	[SerializeField] private float moveSpeed;
@@ -40,20 +41,10 @@ public class PlayerMove : MonoBehaviour
 	{
 		moveInput = moveAction.ReadValue<Vector2>();
 
+		moveDirection = new Vector3(moveInput.x, 0, moveInput.y);
+		moveDirection = playerCam.transform.TransformDirection(moveDirection);
+		moveDirection.y = 0;
 
-		targetVector = new Vector3(moveInput.x, 0, moveInput.y);
-		MoveTowardTarget(targetVector);
-	}
-
-	private Vector3 MoveTowardTarget(Vector3 targetVector)
-	{
-		float speed = moveSpeed * Time.deltaTime;
-
-		//camera Y offset
-		targetVector = Quaternion.Euler(0, playerCam.transform.eulerAngles.y, 0) * targetVector;
-
-		Vector3 targetPosition = transform.position + targetVector * speed;
-		transform.position = targetPosition;
-		return targetVector;
+		playerCharController.Move(moveDirection * moveSpeed * Time.deltaTime);
 	}
 }
