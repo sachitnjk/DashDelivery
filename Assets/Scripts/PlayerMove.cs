@@ -41,10 +41,15 @@ public class PlayerMove : MonoBehaviour
 	{
 		moveInput = moveAction.ReadValue<Vector2>();
 
-		moveDirection = new Vector3(moveInput.x, 0, moveInput.y);
-		moveDirection = playerCam.transform.TransformDirection(moveDirection);
-		moveDirection.y = 0;
+		if(moveInput != Vector2.zero) 
+		{
+			moveInput = moveAction.ReadValue<Vector2>();
 
-		playerCharController.Move(moveDirection * moveSpeed * Time.deltaTime);
+			moveDirection = new Vector3(moveInput.x, 0, moveInput.y);
+			moveDirection = playerCam.transform.TransformDirection(moveDirection);
+			moveDirection.y = 0;
+
+			playerCharController.Move(moveDirection * moveSpeed * Time.deltaTime);
+		}
 	}
 }

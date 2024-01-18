@@ -12,6 +12,9 @@ public class PlayerCam : MonoBehaviour
 	private PlayerInput playerInput;
 	private InputAction lookAction;
 
+	private Vector3 playerForward;
+	private Vector2 lookDelta;
+
 	private void Start()
 	{
 		playerInput = InputProvider.GetPlayerInput();
@@ -20,7 +23,7 @@ public class PlayerCam : MonoBehaviour
 
 	private void Update()
 	{
-		Vector2 lookDelta = lookAction.ReadValue<Vector2>();
+		lookDelta = lookAction.ReadValue<Vector2>();
 
 		// Rotate the camera based on the look action
 		RotateCamera(lookDelta.x);
@@ -33,5 +36,9 @@ public class PlayerCam : MonoBehaviour
 
 		// Rotate the camera around its Y-axis
 		transform.RotateAround(playerObject.transform.position, Vector3.up, rotationAmount);
+
+		Vector3 playerForward = transform.forward;
+		playerForward.y = 0; // Ensure no rotation in the y-axis
+		playerObject.transform.forward = playerForward.normalized;
 	}
 }
