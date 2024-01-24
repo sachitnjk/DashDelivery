@@ -15,9 +15,12 @@ public class PlayerMove : MonoBehaviour
 
 	private Vector2 moveInput;
 	private Vector3 moveDirection;
+	private bool isGrounded;
 
 	[Header("Serializable Movement Attributes")]
 	[SerializeField] private float moveSpeed;
+	[SerializeField] private float gravity = 10f;
+	[SerializeField] private LayerMask groundLayer;
 	[SerializeField] private Camera playerCam;
 
 	private void Start()
@@ -35,6 +38,7 @@ public class PlayerMove : MonoBehaviour
 	private void Update()
 	{
 		Move();
+		ApplyGravity();
 	}
 
 	private void Move()
@@ -50,6 +54,16 @@ public class PlayerMove : MonoBehaviour
 			moveDirection.y = 0;
 
 			playerCharController.Move(moveDirection * moveSpeed * Time.deltaTime);
+		}
+	}
+
+	private void ApplyGravity()
+	{
+		isGrounded = Physics.Raycast(transform.position, -Vector3.up, .01f, groundLayer);
+		Debug.Log(isGrounded);
+		if (!isGrounded) 
+		{
+			playerCharController.Move(Vector3.down * gravity * Time.deltaTime);
 		}
 	}
 }
