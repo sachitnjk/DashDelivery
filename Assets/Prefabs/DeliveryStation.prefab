@@ -994,6 +994,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4264121712571646719}
+  - component: {fileID: 8577927798731416605}
   m_Layer: 0
   m_Name: DeliveryStation
   m_TagString: Untagged
@@ -1017,3 +1018,15 @@ Transform:
   - {fileID: 3797771671207822245}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8577927798731416605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9007442369329364013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2e9e6888cb2c7d4ba72ed2b61f2d7c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
