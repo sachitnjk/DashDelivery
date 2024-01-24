@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e99687dcabaeb7c4a82d21e70464aefc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitivity: 0.563
+  sensitivity: 0.1
   playerObject: {fileID: 7025696146574455048}
 --- !u!1 &5882592186697461981
 GameObject:
@@ -416,7 +416,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d17d5c5f0c19ac43a4768dbafcf9588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 4
+  moveSpeed: 6
+  gravity: 9.81
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
   playerCam: {fileID: 8581002071607514497}
 --- !u!1 &8805127826930065199
 GameObject:
