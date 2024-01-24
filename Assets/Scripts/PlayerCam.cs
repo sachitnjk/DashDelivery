@@ -38,7 +38,7 @@ public class PlayerCam : MonoBehaviour
 		transform.RotateAround(playerObject.transform.position, Vector3.up, rotationAmount);
 
 		Vector3 playerForward = transform.forward;
-		playerForward.y = 0;
+		playerForward.y = 0; // Ensure no rotation in the y-axis
 		playerObject.transform.forward = playerForward.normalized;
 	}
 }
