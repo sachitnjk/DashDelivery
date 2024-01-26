@@ -15,28 +15,33 @@ public class JobSO_Definer : ScriptableObject
 	private float minTimeRequired;
 	private float distanceToJob;
 
+	private bool jobPicked;
+	private bool jobDropped;
+	private bool jobComplete;
+
 	private int randomJDIndex;
 
 	private Transform jobDestination;
-	private Vector3 jobStartPoint;
 
-	public void AssignJob()
+	public void AssignJob(GameObject jobStartObject)
 	{
-		if(jobDestinationsList.Count == 0)
-		{
-			Debug.Log("No Jobs available");
-			return;
-		}
+		//if(jobDestinationsList.Count == 0)
+		//{
+		//	Debug.Log("No Jobs available");
+		//	return;
+		//}
 
-		randomJDIndex = Random.Range(0, jobDestinationsList.Count);
-		jobDestination = jobDestinationsList[randomJDIndex];
+		//randomJDIndex = Random.Range(0, jobDestinationsList.Count);
+		//jobDestination = jobDestinationsList[randomJDIndex];
 
-		CalculateMinimumTimeRequired(jobDestination);
+		//CalculateMinimumTimeRequired(jobDestination, jobStartObject.transform);
+
+		Debug.Log(this.name + "job called");
 	}
 
-	private void CalculateMinimumTimeRequired(Transform destination)
+	private void CalculateMinimumTimeRequired(Transform destination, Transform jobStartTransform)
 	{
-		distanceToJob = Vector3.Distance(destination.position, jobStartPoint);
+		distanceToJob = Vector3.Distance(destination.position, jobStartTransform.position);
 
 		minTimeRequired = distanceToJob / playerSpeed;
 		timeLimit = minTimeRequired + 20f;
