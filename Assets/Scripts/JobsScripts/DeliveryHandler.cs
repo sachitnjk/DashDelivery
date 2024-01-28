@@ -16,10 +16,11 @@ public class DeliveryHandler : MonoBehaviour
 	private PlayerInput playerInput;
 	private InputAction interactAction;
 	private JobSO_Definer jobDefiner;
+	private Transform randomDestination;
+	private List<Transform> randomizedDestinations;
 
-	public List<JobSO_Definer> jobList;
-	[SerializeField] private List<Transform> destinations;
-	[SerializeField] private Job jobScript;
+	[SerializeField] private List<JobSO_Definer> jobList;
+	[SerializeField] private List<Transform> possibleDestinations;
 
 	private void Start()
 	{
@@ -64,6 +65,21 @@ public class DeliveryHandler : MonoBehaviour
 		}
 	}
 
+	private List<Transform> RandomizeJobDestinations(List<Transform> destinations, JobSO_Definer selectedJob)
+	{
+		if (destinations != null && selectedJob != null)
+		{
+			randomizedDestinations = new List<Transform>();
+
+			for (int i = 0; i < selectedJob.jobDestinations; i++)
+			{
+				randomDestination = destinations[UnityEngine.Random.Range(0, destinations.Count)];
+				randomizedDestinations.Add(randomDestination);
+			}
+		}
+		return randomizedDestinations;
+	}
+
 	//Public Job Handlers
 	public void HandleJobPicked()
 	{
@@ -71,7 +87,13 @@ public class DeliveryHandler : MonoBehaviour
 		jobDefiner = jobList[randomJobDisplayCount];
 
 		Debug.Log(jobDefiner);
-		Debug.Log(jobScript.RandomizeJobDestinations(destinations, jobDefiner));
+
+		RandomizeJobDestinations(possibleDestinations, jobDefiner);
+
+		foreach(Transform dest in randomizedDestinations)
+		{
+			Debug.Log(dest.gameObject.name);
+		}
 	}
 	public void HandleJobDropped()
 	{

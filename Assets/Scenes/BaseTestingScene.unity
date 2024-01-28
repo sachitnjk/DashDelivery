@@ -435,9 +435,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 225628285}
-  - component: {fileID: 225628286}
   m_Layer: 0
-  m_Name: Jobs
+  m_Name: JobDestinations
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -464,18 +463,6 @@ Transform:
   - {fileID: 1968423858}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &225628286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 225628284}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afb345139e769aa4793beeddb636b9fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &241877450
 GameObject:
   m_ObjectHideFlags: 0
@@ -1551,7 +1538,7 @@ PrefabInstance:
     - target: {fileID: 4896450569310609568, guid: 5896cc4324d3b954e820330106af0c09, type: 3}
       propertyPath: jobScript
       value: 
-      objectReference: {fileID: 225628286}
+      objectReference: {fileID: 0}
     - target: {fileID: 4896450569310609568, guid: 5896cc4324d3b954e820330106af0c09, type: 3}
       propertyPath: jobList.Array.data[2]
       value: 
@@ -1586,6 +1573,34 @@ PrefabInstance:
       objectReference: {fileID: 49400477}
     - target: {fileID: 4896450569310609568, guid: 5896cc4324d3b954e820330106af0c09, type: 3}
       propertyPath: destinations.Array.data[5]
+      value: 
+      objectReference: {fileID: 1968423858}
+    - target: {fileID: 4896450569310609568, guid: 5896cc4324d3b954e820330106af0c09, type: 3}
+      propertyPath: possibleDestinations.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896450569310609568, guid: 5896cc4324d3b954e820330106af0c09, type: 3}
+      propertyPath: possibleDestinations.Array.data[0]
+      value: 
+      objectReference: {fileID: 37969842}
+    - target: {fileID: 4896450569310609568, guid: 5896cc4324d3b954e820330106af0c09, type: 3}
+      propertyPath: possibleDestinations.Array.data[1]
+      value: 
+      objectReference: {fileID: 241877451}
+    - target: {fileID: 4896450569310609568, guid: 5896cc4324d3b954e820330106af0c09, type: 3}
+      propertyPath: possibleDestinations.Array.data[2]
+      value: 
+      objectReference: {fileID: 1699731610}
+    - target: {fileID: 4896450569310609568, guid: 5896cc4324d3b954e820330106af0c09, type: 3}
+      propertyPath: possibleDestinations.Array.data[3]
+      value: 
+      objectReference: {fileID: 105851941}
+    - target: {fileID: 4896450569310609568, guid: 5896cc4324d3b954e820330106af0c09, type: 3}
+      propertyPath: possibleDestinations.Array.data[4]
+      value: 
+      objectReference: {fileID: 49400477}
+    - target: {fileID: 4896450569310609568, guid: 5896cc4324d3b954e820330106af0c09, type: 3}
+      propertyPath: possibleDestinations.Array.data[5]
       value: 
       objectReference: {fileID: 1968423858}
     - target: {fileID: 8577927798731416605, guid: 5896cc4324d3b954e820330106af0c09, type: 3}
