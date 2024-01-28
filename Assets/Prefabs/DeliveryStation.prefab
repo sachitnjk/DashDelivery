@@ -818,8 +818,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4264121712571646719}
-  - component: {fileID: 4896450569310609568}
   - component: {fileID: 1143196259073347544}
+  - component: {fileID: 4896450569310609568}
   m_Layer: 0
   m_Name: DeliveryStation
   m_TagString: Untagged
@@ -843,21 +843,6 @@ Transform:
   - {fileID: 3797771671207822245}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4896450569310609568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9007442369329364013}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2e9e6888cb2c7d4ba72ed2b61f2d7c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jobList:
-  - {fileID: 11400000, guid: 1f55f4fb663394c4e8712382d8a8a944, type: 2}
-  - {fileID: 11400000, guid: a9f8a14f6de7172458e76c36d89d98bf, type: 2}
 --- !u!65 &1143196259073347544
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -879,3 +864,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.65, y: 2.350268, z: 2.122891}
   m_Center: {x: 0, y: 1.15, z: -1.14}
+--- !u!114 &4896450569310609568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9007442369329364013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2e9e6888cb2c7d4ba72ed2b61f2d7c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jobList:
+  - {fileID: 11400000, guid: 1f55f4fb663394c4e8712382d8a8a944, type: 2}
+  - {fileID: 11400000, guid: a9f8a14f6de7172458e76c36d89d98bf, type: 2}
+  - {fileID: 11400000, guid: 4e50372cac5a8dc4c86e456b58e0edd5, type: 2}
+  - {fileID: 11400000, guid: 1a589669ccf11bb478d8979c4f036471, type: 2}

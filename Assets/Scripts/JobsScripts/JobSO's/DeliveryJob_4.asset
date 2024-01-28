@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8df6c675ff4cd1943aac88555f41289c, type: 3}
   m_Name: DeliveryJob_4
   m_EditorClassIdentifier: 
-  jobDestinationsList:
-  - {fileID: 0}
+  rewardExp: 80
   rewardItems: []
-  rewardExp: 20
-  playerSpeed: 0
+  <jobDestinations>k__BackingField: 3

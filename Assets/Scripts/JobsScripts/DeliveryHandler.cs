@@ -18,15 +18,13 @@ public class DeliveryHandler : MonoBehaviour
 	private JobSO_Definer jobDefiner;
 
 	public List<JobSO_Definer> jobList;
+	[SerializeField] private List<Transform> destinations;
+	[SerializeField] private Job jobScript;
 
 	private void Start()
 	{
 		playerInput = InputProvider.GetPlayerInput();
 		interactAction = playerInput.actions["Interact"];
-
-		randomJobDisplayCount = UnityEngine.Random.Range(0, jobList.Count);
-
-		jobDefiner = jobList[randomJobDisplayCount];
 
 		playerAtStation = false;
 
@@ -69,7 +67,11 @@ public class DeliveryHandler : MonoBehaviour
 	//Public Job Handlers
 	public void HandleJobPicked()
 	{
-		jobDefiner.AssignJob(this.gameObject);
+		randomJobDisplayCount = UnityEngine.Random.Range(0, jobList.Count);
+		jobDefiner = jobList[randomJobDisplayCount];
+
+		Debug.Log(jobDefiner);
+		Debug.Log(jobScript.RandomizeJobDestinations(destinations, jobDefiner));
 	}
 	public void HandleJobDropped()
 	{
