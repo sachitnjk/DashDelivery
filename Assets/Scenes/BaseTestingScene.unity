@@ -946,6 +946,34 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5264388183613058571, guid: 95a44ec67bb6055458a8be625c85ae7d, type: 3}
+      propertyPath: maxJobs
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5264388183613058571, guid: 95a44ec67bb6055458a8be625c85ae7d, type: 3}
+      propertyPath: activeJobsSOList.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5264388183613058571, guid: 95a44ec67bb6055458a8be625c85ae7d, type: 3}
+      propertyPath: activeJobsSOList.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 21a37b8a5b8c68e4cb03e0fb3940f6bd, type: 2}
+    - target: {fileID: 5264388183613058571, guid: 95a44ec67bb6055458a8be625c85ae7d, type: 3}
+      propertyPath: activeJobsSOList.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: a8c852a3ae61db843a360a546ebe9733, type: 2}
+    - target: {fileID: 5264388183613058571, guid: 95a44ec67bb6055458a8be625c85ae7d, type: 3}
+      propertyPath: activeJobsSOList.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: c31905c6519e745488b199dfec5a15a3, type: 2}
+    - target: {fileID: 5264388183613058571, guid: 95a44ec67bb6055458a8be625c85ae7d, type: 3}
+      propertyPath: activeJobsSOList.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: f3b2f324eafc58747bd089d25667aa4d, type: 2}
+    - target: {fileID: 5264388183613058571, guid: 95a44ec67bb6055458a8be625c85ae7d, type: 3}
+      propertyPath: activeJobsSOList.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2834be004e408fd419a6816c92d5b32b, type: 2}
     - target: {fileID: 6416921245573024686, guid: 95a44ec67bb6055458a8be625c85ae7d, type: 3}
       propertyPath: m_IsKinematic
       value: 0
@@ -1538,6 +1566,10 @@ PrefabInstance:
     - target: {fileID: 4896450569310609568, guid: 5896cc4324d3b954e820330106af0c09, type: 3}
       propertyPath: jobScript
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4896450569310609568, guid: 5896cc4324d3b954e820330106af0c09, type: 3}
+      propertyPath: allotedTime
+      value: 30.3
       objectReference: {fileID: 0}
     - target: {fileID: 4896450569310609568, guid: 5896cc4324d3b954e820330106af0c09, type: 3}
       propertyPath: jobList.Array.data[2]

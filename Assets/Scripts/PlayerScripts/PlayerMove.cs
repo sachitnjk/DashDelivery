@@ -16,7 +16,7 @@ public class PlayerMove : MonoBehaviour
 	private Vector2 moveInput;
 	private Vector3 moveDirection;
 
-	[Header("Serializable Movement Attributes")]
+	[Header("Movement Attributes")]
 	[SerializeField] private float moveSpeed;
 	[SerializeField] private Camera playerCam;
 

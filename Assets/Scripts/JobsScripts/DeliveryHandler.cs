@@ -17,6 +17,7 @@ public class DeliveryHandler : MonoBehaviour
 	private InputAction interactAction;
 	private JobSO_Definer jobDefiner;
 	private Transform randomDestination;
+	private PlayerJobSelector playerJobSelector;
 	private List<Transform> randomizedDestinations;
 
 	[SerializeField] private List<JobSO_Definer> jobList;
@@ -41,6 +42,7 @@ public class DeliveryHandler : MonoBehaviour
 		if(other.gameObject.CompareTag("Player"))
 		{
 			playerAtStation = true;
+			playerJobSelector = other.gameObject.GetComponent<PlayerJobSelector>();
 		}
 	}
 	private void OnTriggerExit(Collider other)
@@ -48,6 +50,7 @@ public class DeliveryHandler : MonoBehaviour
 		if (other.gameObject.CompareTag("Player"))
 		{
 			playerAtStation = false;
+			playerJobSelector = null;
 		}
 	}
 
@@ -97,12 +100,16 @@ public class DeliveryHandler : MonoBehaviour
 		jobDefiner = jobList[randomJobDisplayCount];
 
 		RandomizeJobDestinations(possibleDestinations, jobDefiner);
-
-		Debug.Log(jobDefiner);
-		foreach (Transform dest in randomizedDestinations)
+		if(playerJobSelector != null) 
 		{
-			Debug.Log(dest.gameObject.name);
+			playerJobSelector.TryAddJob(jobDefiner, randomizedDestinations);
 		}
+
+		//Debug.Log(jobDefiner);
+		//foreach (Transform dest in randomizedDestinations)
+		//{
+		//	Debug.Log(dest.gameObject.name);
+		//}
 	}
 	private void HandleJobDropped()
 	{
