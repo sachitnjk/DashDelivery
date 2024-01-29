@@ -9,8 +9,8 @@ public class DeliveryHandler : MonoBehaviour
 	private Action e_JobPickup;
 	private Action e_JobDrop;
 
+	private int maxAttempts;
 	private int randomJobDisplayCount;
-
 	private bool playerAtStation;
 
 	private PlayerInput playerInput;
@@ -73,29 +73,38 @@ public class DeliveryHandler : MonoBehaviour
 
 			for (int i = 0; i < selectedJob.jobDestinations; i++)
 			{
-				randomDestination = destinations[UnityEngine.Random.Range(0, destinations.Count)];
-				randomizedDestinations.Add(randomDestination);
+				maxAttempts = 4;
+
+				while(maxAttempts > 0)
+				{
+					randomDestination = destinations[UnityEngine.Random.Range(0, destinations.Count)];
+					if(!randomizedDestinations.Contains(randomDestination))
+					{
+						randomizedDestinations.Add(randomDestination);
+						break;
+					}
+					maxAttempts--;
+				}
 			}
 		}
 		return randomizedDestinations;
 	}
 
 	//Public Job Handlers
-	public void HandleJobPicked()
+	private void HandleJobPicked()
 	{
 		randomJobDisplayCount = UnityEngine.Random.Range(0, jobList.Count);
 		jobDefiner = jobList[randomJobDisplayCount];
 
-		Debug.Log(jobDefiner);
-
 		RandomizeJobDestinations(possibleDestinations, jobDefiner);
 
-		foreach(Transform dest in randomizedDestinations)
+		Debug.Log(jobDefiner);
+		foreach (Transform dest in randomizedDestinations)
 		{
 			Debug.Log(dest.gameObject.name);
 		}
 	}
-	public void HandleJobDropped()
+	private void HandleJobDropped()
 	{
 
 	}
