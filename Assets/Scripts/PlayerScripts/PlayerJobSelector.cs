@@ -11,6 +11,8 @@ public class PlayerJobSelector : MonoBehaviour
 	[SerializeField] private int maxJobs;
 	private int currentJobCount;
 
+	[SerializeField] private List<JobSO_Definer> activeJobSOList;
+
 	public bool tabActive{ get; private set; }
 
 	private void Start()
@@ -52,10 +54,6 @@ public class PlayerJobSelector : MonoBehaviour
 	}
 	private void AddToActive(JobSO_Definer jobDefiner, List<Transform> jobDestinations)
 	{
-		Debug.Log(jobDefiner);
-		foreach(Transform dest in jobDestinations) 
-		{
-			Debug.Log(dest);
-		}
+		activeJobSOList.Add(jobDefiner);
 	}
 }
