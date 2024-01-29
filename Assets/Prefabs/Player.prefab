@@ -431,7 +431,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4abff055a72df1a459933690378fa289, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxJobs: 0
+  maxJobs: 4
+  activeJobSOList: []
 --- !u!1 &8805127826930065199
 GameObject:
   m_ObjectHideFlags: 0
