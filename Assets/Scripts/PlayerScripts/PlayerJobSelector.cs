@@ -13,18 +13,18 @@ public class PlayerJobSelector : MonoBehaviour
 
 	[SerializeField] private List<JobSO_Definer> activeJobSOList;
 
-	public bool tabActive{ get; private set; }
-	private Dictionary<JobSO_Definer, List<Transform>> jobDestinationDict;
+	public bool jobPanelActive{ get; private set; }
+	private Dictionary<JobSO_Definer, List<Transform>> jobToDestinationLink;
 
 	private void Start()
 	{
 		playerInput = InputProvider.GetPlayerInput();
 		tabAction = playerInput.actions["Tab"];
 
-		tabActive = false;
+		jobPanelActive = false;
 		currentJobCount = 0;
 
-		jobDestinationDict = new Dictionary<JobSO_Definer, List<Transform>>();
+		jobToDestinationLink = new Dictionary<JobSO_Definer, List<Transform>>();
 	}
 	private void Update()
 	{
@@ -33,13 +33,13 @@ public class PlayerJobSelector : MonoBehaviour
 
 	private void JobTabCheck()
 	{
-		if(!tabActive && tabAction.WasPerformedThisFrame())
+		if(!jobPanelActive && tabAction.WasPerformedThisFrame())
 		{
-			tabActive = true;
+			jobPanelActive = true;
 		}
-		else if(tabActive && tabAction.WasPerformedThisFrame()) 
+		else if(jobPanelActive && tabAction.WasPerformedThisFrame()) 
 		{
-			tabActive = false;
+			jobPanelActive = false;
 		}
 	}
 	public void TryAddJob(JobSO_Definer jobSO, List<Transform> jobDestList)
@@ -51,8 +51,7 @@ public class PlayerJobSelector : MonoBehaviour
 		}
 		else
 		{
-			Debug.Log(currentJobCount);
-			Debug.Log("cannot pick more than max Jobs");
+			Debug.Log("cannot pick more than " + currentJobCount + "jobs");
 		}
 	}
 	private void AddToActive(JobSO_Definer jobDefiner, List<Transform> jobDestinations)
@@ -61,7 +60,7 @@ public class PlayerJobSelector : MonoBehaviour
 		{
 			activeJobSOList.Add(jobDefiner);
 
-			jobDestinationDict[jobDefiner] = jobDestinations;
+			jobToDestinationLink[jobDefiner] = jobDestinations;
 
 			Debug.Log(jobDefiner);
 			foreach(Transform dest in GetJobDestinations(jobDefiner))
@@ -75,12 +74,22 @@ public class PlayerJobSelector : MonoBehaviour
 		}
 	}
 
-	public List<Transform> GetJobDestinations(JobSO_Definer jobDefiner)
+	private List<Transform> GetJobDestinations(JobSO_Definer jobDefiner)
 	{
-		if(jobDestinationDict.TryGetValue(jobDefiner, out List<Transform> jobDestinations))
+		if(jobToDestinationLink.TryGetValue(jobDefiner, out List<Transform> jobDestinations))
 		{
 			return jobDestinations;
 		}
 		return null;
+	}
+
+
+	public bool JobPanelStatusCheck()
+	{
+		if (jobPanelActive)
+		{
+			return true;
+		}
+		return false;
 	}
 }

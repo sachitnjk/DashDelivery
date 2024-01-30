@@ -12,6 +12,7 @@ public class PlayerMove : MonoBehaviour
 	private InputAction moveAction;
 
 	private CharacterController playerCharController;
+	private PlayerJobSelector playerJobSelector;
 
 	private Vector2 moveInput;
 	private Vector3 moveDirection;
@@ -30,11 +31,15 @@ public class PlayerMove : MonoBehaviour
 		}
 
 		playerCharController = GetComponent<CharacterController>();
+		playerJobSelector = GetComponent<PlayerJobSelector>();
 	}
 
 	private void Update()
 	{
-		Move();
+		if(!playerJobSelector.JobPanelStatusCheck())
+		{
+			Move();
+		}
 	}
 
 	private void Move()

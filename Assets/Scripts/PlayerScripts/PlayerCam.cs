@@ -12,6 +12,8 @@ public class PlayerCam : MonoBehaviour
 	private PlayerInput playerInput;
 	private InputAction lookAction;
 
+	[SerializeField] PlayerJobSelector playerJobSelector; 
+
 	private Vector3 playerForward;
 	private Vector2 lookDelta;
 
@@ -25,20 +27,21 @@ public class PlayerCam : MonoBehaviour
 	{
 		lookDelta = lookAction.ReadValue<Vector2>();
 
-		// Rotate the camera based on the look action
-		RotateCamera(lookDelta.x);
+		//Movement lock check before camera rotation
+		if(!playerJobSelector.JobPanelStatusCheck())
+		{
+			RotateCamera(lookDelta.x);
+		}
 	}
 
 	private void RotateCamera(float lookInputX)
 	{
-		// Adjust the rotation based on sensitivity
 		float rotationAmount = lookInputX * sensitivity;
 
-		// Rotate the camera around its Y-axis
 		transform.RotateAround(playerObject.transform.position, Vector3.up, rotationAmount);
 
 		Vector3 playerForward = transform.forward;
-		playerForward.y = 0; // Ensure no rotation in the y-axis
+		playerForward.y = 0;
 		playerObject.transform.forward = playerForward.normalized;
 	}
 }
