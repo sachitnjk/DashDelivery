@@ -881,3 +881,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a9f8a14f6de7172458e76c36d89d98bf, type: 2}
   - {fileID: 11400000, guid: 4e50372cac5a8dc4c86e456b58e0edd5, type: 2}
   - {fileID: 11400000, guid: 1a589669ccf11bb478d8979c4f036471, type: 2}
+  possibleDestinations:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

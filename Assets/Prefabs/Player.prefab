@@ -170,6 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensitivity: 0.1
   playerObject: {fileID: 7025696146574455048}
+  playerJobSelector: {fileID: 5264388183613058571}
 --- !u!1 &5882592186697461981
 GameObject:
   m_ObjectHideFlags: 0

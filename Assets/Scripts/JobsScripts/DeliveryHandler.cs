@@ -104,12 +104,6 @@ public class DeliveryHandler : MonoBehaviour
 		{
 			playerJobSelector.TryAddJob(jobDefiner, randomizedDestinations);
 		}
-
-		//Debug.Log(jobDefiner);
-		//foreach (Transform dest in randomizedDestinations)
-		//{
-		//	Debug.Log(dest.gameObject.name);
-		//}
 	}
 	private void HandleJobDropped()
 	{
