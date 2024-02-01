@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "DeliveryJob")]
 public class JobSO_Definer : ScriptableObject
 {
-	[SerializeField] private float rewardExp;
-	[SerializeField] private List<GameObject> rewardItems;
+	[field: SerializeField] public float rewardExp{ get; private set; }
+	[field: SerializeField] private List<GameObject> rewardItems;
 	[field: SerializeField] public int jobDestinations { get; private set; }
 }

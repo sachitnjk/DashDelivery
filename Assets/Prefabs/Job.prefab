@@ -1090,6 +1090,7 @@ GameObject:
   - component: {fileID: 3245955905449732599}
   - component: {fileID: 4638241487021357140}
   - component: {fileID: 3064653956888163391}
+  - component: {fileID: 1432576957674961382}
   m_Layer: 5
   m_Name: Job
   m_TagString: Untagged
@@ -1158,3 +1159,17 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1432576957674961382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8638296926389615884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c2d0c8f90b068248b0e610096da31ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destinationCount: {fileID: 2813718945152388108}
+  reward: {fileID: 4199727434347155470}

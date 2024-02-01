@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8df6c675ff4cd1943aac88555f41289c, type: 3}
   m_Name: DeliveryJob_1
   m_EditorClassIdentifier: 
-  rewardExp: 10
+  <rewardExp>k__BackingField: 200
   rewardItems: []
   <jobDestinations>k__BackingField: 2

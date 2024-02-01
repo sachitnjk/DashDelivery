@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
 	public static UIManager uiManagerInstance;
+
 
 	private bool basePanelActive;
 
@@ -15,6 +17,7 @@ public class UIManager : MonoBehaviour
 	[SerializeField] private GameObject jobsPanel;
 	[SerializeField] private GameObject settingsPanel;
 	[SerializeField] private GameObject controlsPanel;
+	[SerializeField] private List<ActiveJobUI> activeJobUI;
 
 	private void Awake()
 	{
@@ -37,7 +40,20 @@ public class UIManager : MonoBehaviour
 
 	private void Update()
 	{
-		BasePanelToggleCheck();
+		if(activeJobUI != null && playerJobSelector != null) 
+		{
+			BasePanelToggleCheck();
+			PopulateJobPanel(playerJobSelector.GetActiveJobList());
+		}
+	}
+
+	private void PopulateJobPanel(List<JobSO_Definer> addedJob)
+	{
+		for (int i = 0; i < addedJob.Count && i < activeJobUI.Count; i++)
+		{
+			JobSO_Definer job = addedJob[i];
+			activeJobUI[i].InitJobUI(playerJobSelector.GetActiveJobDestinations(job).Count.ToString(), job.rewardExp.ToString());
+		}
 	}
 
 	private void BasePanelToggleCheck()

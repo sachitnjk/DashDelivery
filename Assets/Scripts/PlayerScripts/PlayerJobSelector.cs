@@ -28,10 +28,10 @@ public class PlayerJobSelector : MonoBehaviour
 	}
 	private void Update()
 	{
-		JobTabCheck();
+		JobPanelInteractCheck();
 	}
 
-	private void JobTabCheck()
+	private void JobPanelInteractCheck()
 	{
 		if(!jobPanelActive && tabAction.WasPerformedThisFrame())
 		{
@@ -61,12 +61,6 @@ public class PlayerJobSelector : MonoBehaviour
 			activeJobSOList.Add(jobDefiner);
 
 			jobToDestinationLink[jobDefiner] = jobDestinations;
-
-			Debug.Log(jobDefiner);
-			foreach(Transform dest in GetJobDestinations(jobDefiner))
-			{
-				Debug.Log(dest.gameObject.name);
-			}
 		}
 		else
 		{
@@ -74,7 +68,16 @@ public class PlayerJobSelector : MonoBehaviour
 		}
 	}
 
-	private List<Transform> GetJobDestinations(JobSO_Definer jobDefiner)
+	public List<JobSO_Definer> GetActiveJobList()
+	{
+		if(activeJobSOList != null)
+		{
+			return activeJobSOList;
+		}
+		return null;
+	}
+
+	public List<Transform> GetActiveJobDestinations(JobSO_Definer jobDefiner)
 	{
 		if(jobToDestinationLink.TryGetValue(jobDefiner, out List<Transform> jobDestinations))
 		{
