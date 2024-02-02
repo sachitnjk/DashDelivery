@@ -6,13 +6,15 @@ using UnityEngine;
 
 public class ActiveJobUI : MonoBehaviour
 {
-	public TextMeshProUGUI destinationCount;
-	public TextMeshProUGUI reward;
+	[SerializeField] private TextMeshProUGUI jType;
+	[SerializeField] private TextMeshProUGUI jDestCount;
+	[SerializeField] private TextMeshProUGUI jReward;
 
-	public void InitJobUI(string destCount, string jReward)
+	public void InitJobUI(string type, string destCount, string reward)
 	{
-		destinationCount.text = destCount;
-		reward.text = jReward;
+		jType.text = type;
+		jDestCount.text = destCount;
+		this.jReward.text = reward;
 		this.gameObject.SetActive(true);
 	}
 }

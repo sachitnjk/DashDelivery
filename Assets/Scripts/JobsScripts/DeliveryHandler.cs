@@ -74,7 +74,7 @@ public class DeliveryHandler : MonoBehaviour
 		{
 			randomizedDestinations = new List<Transform>();
 
-			for (int i = 0; i < selectedJob.jobDestinations; i++)
+			for (int i = 0; i < selectedJob.JobDestinations; i++)
 			{
 				maxAttempts = 4;
 

@@ -2,10 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "DeliveryJob")]
+[CreateAssetMenu(menuName = "CreateJob")]
 public class JobSO_Definer : ScriptableObject
 {
-	[field: SerializeField] public float rewardExp{ get; private set; }
+	public enum jobTypes
+	{
+		Delivery,
+		Collection,
+		Escort,
+		Surveilence,
+		Investigation,
+		Defend,
+		Build
+	}
+
 	[field: SerializeField] private List<GameObject> rewardItems;
-	[field: SerializeField] public int jobDestinations { get; private set; }
+	[field: SerializeField] public jobTypes JobType{ get; private set;}
+	[field: SerializeField] public float RewardExp{ get; private set; }
+	[field: SerializeField] public int JobDestinations { get; private set; }
 }

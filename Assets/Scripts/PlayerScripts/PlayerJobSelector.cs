@@ -68,6 +68,10 @@ public class PlayerJobSelector : MonoBehaviour
 		}
 	}
 
+	public string GetJobType(JobSO_Definer jobDefiner)
+	{
+		return jobDefiner.JobType.ToString();
+	}
 	public List<JobSO_Definer> GetActiveJobList()
 	{
 		if(activeJobSOList != null)
@@ -76,7 +80,6 @@ public class PlayerJobSelector : MonoBehaviour
 		}
 		return null;
 	}
-
 	public List<Transform> GetActiveJobDestinations(JobSO_Definer jobDefiner)
 	{
 		if(jobToDestinationLink.TryGetValue(jobDefiner, out List<Transform> jobDestinations))

@@ -52,7 +52,7 @@ public class UIManager : MonoBehaviour
 		for (int i = 0; i < addedJob.Count && i < activeJobUI.Count; i++)
 		{
 			JobSO_Definer job = addedJob[i];
-			activeJobUI[i].InitJobUI(playerJobSelector.GetActiveJobDestinations(job).Count.ToString(), job.rewardExp.ToString());
+			activeJobUI[i].InitJobUI(playerJobSelector.GetJobType(job), playerJobSelector.GetActiveJobDestinations(job).Count.ToString(), job.RewardExp.ToString());
 		}
 	}
 

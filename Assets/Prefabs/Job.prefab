@@ -1171,5 +1171,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c2d0c8f90b068248b0e610096da31ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destinationCount: {fileID: 2813718945152388108}
-  reward: {fileID: 4199727434347155470}
+  jType: {fileID: 4784005310567873464}
+  jDestCount: {fileID: 2813718945152388108}
+  jReward: {fileID: 4199727434347155470}
