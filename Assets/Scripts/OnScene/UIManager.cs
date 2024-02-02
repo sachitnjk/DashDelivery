@@ -7,7 +7,6 @@ public class UIManager : MonoBehaviour
 {
 	public static UIManager uiManagerInstance;
 
-
 	private bool basePanelActive;
 
 	[SerializeField] private PlayerJobSelector playerJobSelector;
@@ -18,6 +17,11 @@ public class UIManager : MonoBehaviour
 	[SerializeField] private GameObject settingsPanel;
 	[SerializeField] private GameObject controlsPanel;
 	[SerializeField] private List<ActiveJobUI> activeJobUI;
+
+	[Header("Tracked Job UI references")]
+	[SerializeField] private TextMeshProUGUI tj_Type;
+	[SerializeField] private TextMeshProUGUI tj_DestinationCount;
+	[SerializeField] private TextMeshProUGUI tj_Reward;
 
 	private void Awake()
 	{
@@ -53,6 +57,7 @@ public class UIManager : MonoBehaviour
 		{
 			JobSO_Definer job = addedJob[i];
 			activeJobUI[i].InitJobUI(playerJobSelector.GetJobType(job), playerJobSelector.GetActiveJobDestinations(job).Count.ToString(), job.RewardExp.ToString());
+			activeJobUI[i].SetTrackedJob(job, tj_Type, tj_DestinationCount, tj_Reward);
 		}
 	}
 

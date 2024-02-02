@@ -88,8 +88,6 @@ public class PlayerJobSelector : MonoBehaviour
 		}
 		return null;
 	}
-
-
 	public bool JobPanelStatusCheck()
 	{
 		if (jobPanelActive)
