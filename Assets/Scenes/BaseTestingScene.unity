@@ -977,6 +977,7 @@ MonoBehaviour:
   - {fileID: 1286149507}
   - {fileID: 1757094589}
   - {fileID: 1805542470}
+  trackedJobPanel: {fileID: 485953637}
   tj_Type: {fileID: 153512095}
   tj_DestinationCount: {fileID: 596378661}
   tj_Reward: {fileID: 283746360}
@@ -2291,7 +2292,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &485953638
 RectTransform:
   m_ObjectHideFlags: 0

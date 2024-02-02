@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class UIManager : MonoBehaviour
 {
 	public static UIManager uiManagerInstance;
 
+	private PlayerInput playerInput;
+	private InputAction trackedToggleInput;
 	private bool basePanelActive;
 
 	[SerializeField] private PlayerJobSelector playerJobSelector;
@@ -19,6 +23,7 @@ public class UIManager : MonoBehaviour
 	[SerializeField] private List<ActiveJobUI> activeJobUI;
 
 	[Header("Tracked Job UI references")]
+	[SerializeField] private GameObject trackedJobPanel;
 	[SerializeField] private TextMeshProUGUI tj_Type;
 	[SerializeField] private TextMeshProUGUI tj_DestinationCount;
 	[SerializeField] private TextMeshProUGUI tj_Reward;
@@ -35,10 +40,17 @@ public class UIManager : MonoBehaviour
 
 	private void Start()
 	{
+		playerInput = InputProvider.GetPlayerInput();
+		trackedToggleInput = playerInput.actions["TrackedToggle"];
+
 		basePanelActive = false;
 		if(baseUIPanel != null)
 		{
 			baseUIPanel.SetActive(false);
+		}
+		if(trackedJobPanel != null) 
+		{
+			trackedJobPanel.SetActive(false);
 		}
 	}
 
@@ -49,6 +61,7 @@ public class UIManager : MonoBehaviour
 			BasePanelToggleCheck();
 			PopulateJobPanel(playerJobSelector.GetActiveJobList());
 		}
+		TrackedPanelToggleCheck();
 	}
 
 	private void PopulateJobPanel(List<JobSO_Definer> addedJob)
@@ -74,6 +87,17 @@ public class UIManager : MonoBehaviour
 			Cursor.lockState = CursorLockMode.Locked;
 			basePanelActive = false;
 			baseUIPanel.SetActive(false);
+		}
+	}
+	private void TrackedPanelToggleCheck()
+	{
+		if(trackedToggleInput.IsPressed() && trackedJobPanel != null)
+		{
+			trackedJobPanel.SetActive(true);
+		}
+		if(trackedToggleInput.WasReleasedThisFrame())
+		{
+			trackedJobPanel.SetActive(false);
 		}
 	}
 
