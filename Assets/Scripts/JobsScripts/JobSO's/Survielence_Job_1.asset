@@ -15,4 +15,4 @@ MonoBehaviour:
   rewardItems: []
   <JobType>k__BackingField: 3
   <RewardExp>k__BackingField: 400
-  <JobDestinations>k__BackingField: 4
+  <JobDestinations>k__BackingField: 1

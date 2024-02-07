@@ -83,6 +83,15 @@ public class PlayerJobSelector : MonoBehaviour
 		{
 			previousDest.gameObject.SetActive(false);
 		}
+
+		//if (jobToDestinationLink.TryGetValue(jobDefiner, out List<Transform> jobDestinations))
+		//{
+		//	trackedJobDestinations = jobDestinations;
+		//	foreach (Transform destination in trackedJobDestinations)
+		//	{
+		//		destination.gameObject.SetActive(true);
+		//	}
+		//}
 		trackedJobDestinations = GetActiveJobDestinations(jobDefiner);
 
 		foreach (Transform destination in trackedJobDestinations)
