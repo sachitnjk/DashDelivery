@@ -30,11 +30,13 @@ public class ActiveJobUI : MonoBehaviour
 	{
 		isTracked = true;
 	}
-	public void SetTrackedJob(JobSO_Definer jobDefiner, TextMeshProUGUI tj_Type, TextMeshProUGUI tj_DestinationCount, TextMeshProUGUI tj_Reward)
+	public void SetTrackedJobUI(JobSO_Definer jobDefiner, TextMeshProUGUI tj_Type, TextMeshProUGUI tj_DestinationCount, TextMeshProUGUI tj_Reward)
 	{
 		if(isTracked) 
 		{
 			isTracked=false;
+
+			GameManager.instance.OnTrackedInvoke(jobDefiner);
 
 			tj_Type.text = jobDefiner.JobType.ToString();
 			tj_Reward.text = jobDefiner.RewardExp.ToString();

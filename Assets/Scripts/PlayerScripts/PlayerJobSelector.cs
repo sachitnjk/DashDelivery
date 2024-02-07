@@ -15,6 +15,7 @@ public class PlayerJobSelector : MonoBehaviour
 
 	public bool jobPanelActive{ get; private set; }
 	private Dictionary<JobSO_Definer, List<Transform>> jobToDestinationLink;
+	private List<Transform> trackedJobDestinations;
 
 	private void Start()
 	{
@@ -25,6 +26,7 @@ public class PlayerJobSelector : MonoBehaviour
 		currentJobCount = 0;
 
 		jobToDestinationLink = new Dictionary<JobSO_Definer, List<Transform>>();
+		trackedJobDestinations = new List<Transform>();
 	}
 	private void OnEnable()
 	{
@@ -77,9 +79,15 @@ public class PlayerJobSelector : MonoBehaviour
 	}
 	private void HandleOnTracked(JobSO_Definer jobDefiner)
 	{
-		foreach(Transform destination in GetActiveJobDestinations(jobDefiner)) 
+		foreach(Transform previousDest in trackedJobDestinations) 
 		{
-			if(destination.gameObject != null)
+			previousDest.gameObject.SetActive(false);
+		}
+		trackedJobDestinations = GetActiveJobDestinations(jobDefiner);
+
+		foreach (Transform destination in trackedJobDestinations)
+		{
+			if (destination.gameObject != null)
 			{
 				destination.gameObject.SetActive(true);
 			}
