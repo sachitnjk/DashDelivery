@@ -70,7 +70,7 @@ public class UIManager : MonoBehaviour
 		{
 			JobSO_Definer job = addedJob[i];
 			activeJobUI[i].InitJobUI(playerJobSelector.GetJobType(job), playerJobSelector.GetActiveJobDestinations(job).Count.ToString(), job.RewardExp.ToString());
-			activeJobUI[i].SetTrackedJob(job, tj_Type, tj_DestinationCount, tj_Reward);
+			activeJobUI[i].SetTrackedJobUI(job, tj_Type, tj_DestinationCount, tj_Reward);
 		}
 	}
 

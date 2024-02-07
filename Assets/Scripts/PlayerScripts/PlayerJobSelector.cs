@@ -26,6 +26,14 @@ public class PlayerJobSelector : MonoBehaviour
 
 		jobToDestinationLink = new Dictionary<JobSO_Definer, List<Transform>>();
 	}
+	private void OnEnable()
+	{
+		GameManager.instance.OnTracked += HandleOnTracked;
+	}
+	private void OnDestroy()
+	{
+		GameManager.instance.OnTracked -= HandleOnTracked;
+	}
 	private void Update()
 	{
 		JobPanelInteractCheck();
@@ -65,6 +73,16 @@ public class PlayerJobSelector : MonoBehaviour
 		else
 		{
 			Debug.LogError("jobDefiner or jobDestination is invalid");
+		}
+	}
+	private void HandleOnTracked(JobSO_Definer jobDefiner)
+	{
+		foreach(Transform destination in GetActiveJobDestinations(jobDefiner)) 
+		{
+			if(destination.gameObject != null)
+			{
+				destination.gameObject.SetActive(true);
+			}
 		}
 	}
 
