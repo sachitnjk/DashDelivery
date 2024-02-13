@@ -8,6 +8,12 @@ public class GameManager : MonoBehaviour
 {
 	public static GameManager instance;
 	public Action<JobSO_Definer> OnTracked;
+	public Action OnNewDay;
+
+	//------TO BE REMOVED, TESTING ONLY---------
+	private PlayerInput playerInput;
+	private InputAction debugActionX;
+	//------------------------------------------
 
 	private void Awake()
 	{
@@ -26,10 +32,30 @@ public class GameManager : MonoBehaviour
 	private void Start()
 	{
 		Cursor.lockState = CursorLockMode.Locked;
+
+		//------TO BE REMOVED, TESTING ONLY---------
+		playerInput = InputProvider.GetPlayerInput();
+		debugActionX = playerInput.actions["DebugX"];
+		//------------------------------------------
 	}
+
+	//------TO BE REMOVED, TESTING ONLY---------
+	private void Update()
+	{
+		if(debugActionX != null && debugActionX.WasPerformedThisFrame()) 
+		{
+			OnNewDayInvoke();
+		}
+	}
+
+	//------------------------------------------
 
 	public void OnTrackedInvoke(JobSO_Definer jobDefiner)
 	{
 		OnTracked?.Invoke(jobDefiner);
+	}
+	public void OnNewDayInvoke()
+	{
+		OnNewDay?.Invoke();
 	}
 }
